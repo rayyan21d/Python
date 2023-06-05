@@ -15,15 +15,17 @@ class Snake:
         self.create_snake()
         self.head = self.segments[0]
         
-
+    def add_segment(self, position):
+        new_segment = Turtle("square")
+        new_segment.penup()
+        new_segment.color("white")
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+        
     def create_snake(self):
         
         for position in STARTING_POSITIONS:
-            new_segment = Turtle("square")
-            new_segment.penup()
-            new_segment.color("white")
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
             
             
     def move(self):
@@ -51,3 +53,11 @@ class Snake:
             self.head.setheading(0)
     
     
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
+        
+    def detect_collision(self):
+        for segment in self.segments[1:]:
+            if self.head.distance(segment) < 10:
+                return True
+        return False
