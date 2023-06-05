@@ -14,11 +14,12 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
+        self.head.color("red")
         
     def add_segment(self, position):
         new_segment = Turtle("square")
         new_segment.penup()
-        new_segment.color("white")
+        new_segment.color("green")
         new_segment.goto(position)
         self.segments.append(new_segment)
         
@@ -61,3 +62,12 @@ class Snake:
             if self.head.distance(segment) < 10:
                 return True
         return False
+    
+    
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(20000, 20000) 
+        
+        
+        self.segments.clear()
+        self.__init__()
