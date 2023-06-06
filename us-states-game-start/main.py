@@ -3,12 +3,15 @@ import turtle
 screen = turtle.Screen()
 screen.title("U.S. States Game")
 
-image = "blank_states_img.gif"
+image = "./blank_states_img.gif"
 
 screen.addshape(image)
 turtle.shape(image)
 
+def get_mouse_click_coors(x, y):
+    print(x, y)
+    
+turtle.onscreenclick(get_mouse_click_coors)
+turtle.mainloop()    
 
-
-
-screen.exitonclick()
+answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?")
