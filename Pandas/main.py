@@ -1,9 +1,16 @@
-import csv
+# Install pandas first: pip install pandas
+import pandas
 
-with open('weather_data.csv') as weather_data:
-    data = csv.reader(weather_data)
-    temperatures = []
-    for row in data:
-        if row[1] != 'temp':
-            temperatures.append(int(row[1]))
-    print(temperatures)
+data = pandas.read_csv('weather_data.csv')
+
+#Converting to a list
+temp_list = data['temp'].to_list()
+print(temp_list)
+
+#Average Temperature
+print(data["temp"].mean())
+
+#Converting to a dictionary
+dict = data.to_dict()
+print(dict)
+
