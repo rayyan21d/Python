@@ -11,22 +11,22 @@ To create the code, a series of international agencies assigned 26 code words ac
 
 ### How to use it?
 
-'
+`
 list =[1,2,3,4]
 new_list = [new_item for item in list]
-'
+`
 
 ### It gets better: You can add conditions!
 
-'
+`
 list =[1,2,3,4,5,6,7,8,9,10]
 new_list = [new_item for item in list if item % 2 != 0]
-'
+`
 
-'
+`
 numbers_list = [1,2,3,4,5,6,7,8,9,10,11]
 odd_sq_nums =[num**2 for num in numbers_list if num % 2 != 0]
-'
+`
 
 ## What is Dictionary Comprehension ?
 
@@ -34,9 +34,9 @@ odd_sq_nums =[num**2 for num in numbers_list if num % 2 != 0]
 
 ### How to use it?
 
-'
+`
 new_dict = {new_key:new_value for item in list}
-'
+`
 
 ## What are Python Sequences?
 
