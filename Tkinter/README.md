@@ -39,6 +39,17 @@ def calculate(**kwargs):
     
 `
 
+`
+class Car:
+    def __init__(self, **kw):
+    
+        #using get will return None if the user key is not found
+        self.make = kw.get('make')
+        self.model = kw.get('model')
+
+my_car = Car(make='Nissan', model='GT-R')
+`
+
 ### Unpacking arguments
 The single asterisk form can be used to unpack an iterable into the list. The double asterisk form can be used to unpack an iterable into the dictionary.
 Example:
