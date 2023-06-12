@@ -1,14 +1,22 @@
 import smtplib
+import datetime as dt
+from .env import vault # This contains a vault dictionary with email and password as keys
 
-test_email = ""
-test_password = " "
+now = dt.datetime.now()
 
-reciever_email = " "
+date_of_birth = dt.datetime(year=1999, month=2, day=9, hour=4)
+
+test_email = vault.email
+test_password = vault.password
+
+reciever_email = "rayyan9290@gmail.com"
 body = "Subject:Hello\n\nThis is a test email from Python."
 
-connection = smtplib.SMTP("smtp.gmail.com", port=587)
-connection.starttls()
-connection.login(user=test_email, password=test_password)
-connection.sendmail(from_addr=test_email, to_addrs=reciever_email, msg=body)
+with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+    connection.starttls()
+    connection.login(user=test_email, password=test_password)
+    connection.sendmail(
+        from_addr=test_email, 
+        to_addrs=reciever_email, 
+        msg=body)
 
-connection.close()
