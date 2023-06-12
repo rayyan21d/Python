@@ -1,5 +1,7 @@
 import requests
 from datetime import datetime;
+import smtplib;
+from env import vault;
 
 MY_LAT = 51.507351
 MY_LONG = -0.127758
@@ -42,5 +44,15 @@ def is_night():
     if sunset <= time_now <= sunrise:
         return True
     
-if is_iss_overhead() and is_night():
-    print("Look up!")        
+if true:
+    
+    with smptlib.SMTP("smtp.gmail.com", port=587) as connection:
+        connection.starttls()
+        connection.login(user=vault["email"], password=vault["password"])
+        connection.sendmail(
+            from_addr=vault["email"], 
+            to_addrs=vault["reciever_email"], 
+            msg="Subject:Look Up\n\nThe ISS is above you in the sky."
+        )
+        print("Email sent")
+        

@@ -6,10 +6,10 @@ now = dt.datetime.now()
 
 date_of_birth = dt.datetime(year=1999, month=2, day=9, hour=4)
 
-test_email = vault.email
-test_password = vault.password
+test_email = vault["email"]
+test_password = vault["password"]
 
-reciever_email = "rayyan9290@gmail.com"
+reciever_email = vault.reciever_email
 body = "Subject:Hello\n\nThis is a test email from Python."
 
 with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
@@ -19,4 +19,5 @@ with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         from_addr=test_email, 
         to_addrs=reciever_email, 
         msg=body)
+    print("Email sent")
 
